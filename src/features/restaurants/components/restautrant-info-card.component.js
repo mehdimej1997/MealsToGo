@@ -17,16 +17,19 @@ import { Text } from "../../../components/typography/text.component";
 function RestaurantInfoCard({ restaurant = {} }) {
   const {
     name = "Name",
-    photos = "https://picsum.photos/700",
-    address = "address",
+    photos = "https://www.expatica.com/app/uploads/sites/5/2014/05/french-food-1920x1080.jpg",
+    vicinity = "address",
     isOpen = true,
     rating = 4.5,
     isClosedTemporarily = false,
   } = restaurant;
-
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover source={{ uri: photos }} />
+      <RestaurantCardCover
+        source={{
+          uri: photos[0],
+        }}
+      />
       <Card.Content>
         <Text variant="label">{name}</Text>
         <RowContainer>
@@ -43,7 +46,7 @@ function RestaurantInfoCard({ restaurant = {} }) {
             <Text variant="error">{"Close Temporarily"}</Text>
           )}
         </RowContainer>
-        <Address>{address}</Address>
+        <Address>{vicinity}</Address>
       </Card.Content>
     </RestaurantCard>
   );
